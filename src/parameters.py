@@ -1,0 +1,10 @@
+forager_start = 50                    #starting energy level of forager
+nurse_start = 50                       #starting energy level of nurse
+forager_threshold = 50                 #if forgarer or nurse goes below this energy level he will go out to forage food
+nurse_threshold = 30                   #if nurse 
+trip_length = 20                       #timesteps to go out and forage ----- randomize later
+food_per_trip = 100                    #energy levels gained per trip
+drain = 1                              #energy level(s) lost per timestep
+timestep = 1                           #timestep
+feed_rate = 5
+n = 200
