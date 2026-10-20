@@ -40,6 +40,7 @@ def run_simulation(food_per_trip):
         #simulates the time taken to forage
         if trip_timer > 0:
             trip_timer -= 1
+            forager_energy -= 2*drain
             if trip_timer == 0:
                 #for simplicity, modelling that forager returns with a fixed amount of food per trip and it doesnt matter at what point it finds it
                foraged_food = food_per_trip
