@@ -2,8 +2,6 @@ import matplotlib.pyplot as plt
 
 import parameters
 
-#parameters
-
 def run_simulation(food_per_trip):
 
     #reset everything
