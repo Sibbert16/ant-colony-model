@@ -5,8 +5,8 @@ import parameters
 def run_simulation(food_per_trip):
 
     #reset everything
-    forager_energy = forager_start         #starting energy level of forager
-    nurses = [nurse_start]             #starting energy level of nurse
+    nurses = [nurse_start]                 #starting energy level of nurses
+    foragers = [forager_start]             #starting energy level of forager
     hive_food = 0                          #amount of food in the hive
     trip_timer = 0                         #timer for foraging trips                  
     foraged_food = 0                       #defining variable     
