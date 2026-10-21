@@ -23,9 +23,12 @@ def energy_plot(nurse_energy_history, forager_energy_history, n):
 
     plt.show()
 
-feed_rates = []
-final_hive_food = []
-nurse_count = []
+
+### THE STUFF BELOW IS LEFTOVER FROM OTHER GRAPHS ICR WHAT ALL OF IT MEANS BUT ITS USEFUL CODE FOR TESTING ###
+
+#feed_rates = []
+#final_hive_food = []
+#nurse_count = []
 
 #for rate in range(150, 150, 10):
 #
