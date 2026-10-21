@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 
 from parameters import *
+from plotting import growth_plot
 
-def run_simulation(food_per_trip):
+def run_simulation():
 
     #reset everything
     nurses = []                 #starting energy level of nurses
@@ -24,6 +25,7 @@ def run_simulation(food_per_trip):
     nurse_history = []
     hive_history = []
     nurse_count_history = []
+    forager_count_history = []
 
     for i in range(n):
 
@@ -61,19 +63,15 @@ def run_simulation(food_per_trip):
             if foragers[t] < forager_threshold and trip_timers[t] == 0:
                 trip_timers[t] = trip_length
 
-        #if foragers not hungry it feeds nurse after feeding itself to full and surplus food is stored in hive
-        else:      
-            for t in range(len(nurses)):
-                while (nurses[t] < nurse_threshold and nurses[t] < ant_full and foraged_food > 0):
-                    food_given = min(feed_rate, foraged_food)
-                    foraged_food -= food_given
-                    nurses[t] += food_given
-                    print(f"Fed nurse {t}: energy = {nurses[t]}, food left = {foraged_food}")
+        #if foragers not hungry it feeds nurse after feeding itself to full and surplus food is stored in hive     
+        for t in range(len(nurses)):
+            while (nurses[t] < nurse_threshold and nurses[t] < ant_full and foraged_food > 0):
+                food_given = min(feed_rate, foraged_food)
+                foraged_food -= food_given
+                nurses[t] += food_given
                 
             hive_food += foraged_food
             foraged_food = 0
-
-        print(f"t={i}, hive={hive_food}, carried={foraged_food}, nurses={len(nurses)}")
 
         while hive_food >= hatch_cost:
             hive_food -= hatch_cost
@@ -81,41 +79,11 @@ def run_simulation(food_per_trip):
             print("Nurse", len(nurses), "hatched at time", i)
 
         nurse_count_history.append(len(nurses))
-    
-    return hive_food, nurse_count_history
-
-feed_rates = []
-final_hive_food = []
-nurse_count = []
+        forager_count_history.append(len(foragers))
+    return hive_food, nurse_count_history, forager_count_history
 
 
-#for rate in range(150, 150, 10):
-#
-#    final_food, nurses_alive = run_simulation(rate)
-#
-#    feed_rates.append(rate)
-#    final_hive_food.append(final_food)
-#    nurse_count.append(nurses_alive)
+hive_food, nurse_count_history, forager_count_history = run_simulation()
+growth_plot(nurse_count_history, forager_count_history, n)
 
-#plt.figure(figsize=(10,5))
 
-#plt.plot(feed_rates, final_hive_food, label="Hive Food")
-
-#plt.xlabel("Foraged Food per Trip")
-#plt.ylabel("Hive Food")
-#plt.title("Hive Food vs Foraged Food per Trip")
-
-#plt.legend()
-
-#plt.show()
-
-final_food, nurse_count_history = run_simulation(food_per_trip)
-plt.figure(figsize=(10,5))
-
-plt.plot(range(n), nurse_count_history)
-
-plt.xlabel("Time step")
-plt.ylabel("Number of nurses")
-plt.title("Colony growth over time")
-
-plt.show()

@@ -2,6 +2,7 @@ forager_start = 50                     #starting energy level of forager
 nurse_start = 50                       #starting energy level of nurse
 forager_threshold = 50                 #if forager or nurse goes below this energy level he will go out to forage food
 nurse_threshold = 50                   #if nurse has less than this energy level it will be fed by forager
+conversion_threshold = 20              #if nurse has less than this energy a nurse will become a forager
 trip_length = 15                       #timesteps to go out and forage
 food_per_trip = 100                    #food foraged gained per trip
 drain = 1                              #energy level(s) lost per timestep
