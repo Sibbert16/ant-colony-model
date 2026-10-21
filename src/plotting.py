@@ -12,6 +12,17 @@ def growth_plot(nurse_count_history, forager_count_history, n):
     plt.show()
 
 
+def energy_plot(nurse_energy_history, forager_energy_history, n):
+    plt.figure(figsize=(10,5))
+    plt.plot(range(n), nurse_energy_history, label="Nurses")
+    plt.plot(range(n), forager_energy_history, label="Foragers")
+
+    plt.xlabel("Time step")
+    plt.ylabel("Average energy level")
+    plt.title("Average energy levels over time")
+
+    plt.show()
+
 feed_rates = []
 final_hive_food = []
 nurse_count = []
