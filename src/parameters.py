@@ -9,4 +9,6 @@ timestep = 1                           #timestep
 feed_rate = 10                         #rate at which forager feeds nurse
 n = 400                                #number of timesteps simulate
 ant_full = 100                         #max amount of energy an ant can have
-hatch_cost = 50   
+hatch_cost = 50 
+starting_foragers = 2                   #number of foragers to start with
+starting_nurses = 8                     #number of nurses to start with  
