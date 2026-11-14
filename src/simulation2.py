@@ -1,3 +1,6 @@
+from parameters2 import *
+
+
 def new_ant(role, energy=start_energy):
     return {
         "role": role,          #nourse/forager
