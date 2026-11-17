@@ -14,8 +14,8 @@ hungry_threshold = 50.0                  #below this an ant wants feeding
 
 # energy lost per timestep ***** one of changes we made
 nurse_drain = 0.5              #nurses sit still in the nest, cheapest
-forager_nest_drain = 0.8       #forager resting in the nest
-forager_trip_drain = 1.6       #forager outside, walking and searching
+forager_nest_drain = 1       #forager resting in the nest
+forager_trip_drain = 2       #forager outside, walking and searching
 
 # foraging
 trip_length = 15               #timesteps a round trip takes
