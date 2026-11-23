@@ -5,26 +5,26 @@ import random
 
 #parameters
 
-n = 5000                  #timesteps to simulate
+n = 50000                  #timesteps to simulate
 
 #energy levels
 ant_full = 70.0                #most energy an ant can hold
-start_energy = 50.0            #energy a newly hatched / starting ant has
+start_energy = 55.0            #energy a newly hatched / starting ant has
 hungry_threshold = 50.0                  #below this an ant wants feeding
 
 # energy lost per timestep ***** one of changes we made
-nurse_drain = 0.5              #nurses sit still in the nest, cheapest
+nurse_drain = 0.5             #nurses sit still in the nest, cheapest
 forager_nest_drain = 0.8       #forager resting in the nest
 forager_trip_drain = 1.6       #forager outside, walking and searching
 
 # foraging
-trip_length = 15               #timesteps a round trip takes
+trip_length = 20            #timesteps a round trip takes
 food_per_trip = 100.0          #food brought home per completed trip
 trip_safety = 1.25             #must have 25% more energy than the trip costs - done this way as it made messing aroung with parameneter4rs easier
 trip_ready = 65.0              #forager tops up to here before setting off
 
 # feeding
-feed_rate = 15.0               #max food moved by one donor per timestep
+feed_rate = 30.0               #max food moved by one donor per timestep
 crop_max = 45.0                #max food a nurse can hold in its social stomach (crop)
 donor_min = 55.0               #a nurse only gives food if it is this healthy
 
@@ -43,9 +43,9 @@ ants_per_forager = 5           #colony wants 1 forager per this many ants
 min_nurses = 2                 #never strip the nest below this many nurses
 
 #forager success for coming back with food
-p_success = 0.95                #comes back with food
-p_death = 0.05                  #dies on journey to get food
-food_spread = 0.1              #trip food varies by about ±25% (1 standard deviation)
+p_success = 1              #comes back with food
+p_death = 0.0                #dies on journey to get food
+food_spread = 0              #trip food varies by about ±25% (1 standard deviation)
 
 #lifetime of ants
 lifespan_mean = 1000            #average lifetime in timesteps
@@ -109,7 +109,7 @@ def run_simulation(food_per_trip=food_per_trip, n_steps=n):
     #trip cost
     trip_cost = trip_length * forager_trip_drain
 
-    for t in range(n_steps):
+    for t in range(50000):
 
         #loses energy by existing
         #checks role of ant, if a forager checks whether it is in the nest, then sets drain accordingly
