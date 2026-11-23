@@ -13,9 +13,15 @@ start_energy = 55.0            #energy a newly hatched / starting ant has
 hungry_threshold = 50.0                  #below this an ant wants feeding
 
 # energy lost per timestep ***** one of changes we made
+<<<<<<< HEAD
 nurse_drain = 0.5             #nurses sit still in the nest, cheapest
 forager_nest_drain = 0.8       #forager resting in the nest
 forager_trip_drain = 1.6       #forager outside, walking and searching
+=======
+nurse_drain = 0.5              #nurses sit still in the nest, cheapest
+forager_nest_drain = 1       #forager resting in the nest
+forager_trip_drain = 2       #forager outside, walking and searching
+>>>>>>> c8e0bfccfb046cb076f6b16bb31ea860b20a5b52
 
 # foraging
 trip_length = 20            #timesteps a round trip takes
